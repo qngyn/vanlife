@@ -7,4 +7,4 @@
 - Backend:
 
 ## Deployment:
-- You can view the project in here: [vanlife-qtn2.netlify.app](vanlife-qtn2.netlify.app)
+- You can view the project in here: [vanlife-qtn2.netlify.app](https://vanlife-qtn2.netlify.app/)
