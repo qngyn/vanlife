@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+
 const HostVanDetail = () => {
     const params = useParams()
     const [van, setVan] = useState(null); 
-
     const styleNav = {
         fontWeight: "bold",
         textDecoration: "underline",
@@ -64,7 +64,7 @@ const HostVanDetail = () => {
                     </NavLink>
                     
                 </nav>
-                <Outlet />
+                <Outlet context={{van}}/>
             </div>
         </section>
     )

@@ -4,7 +4,7 @@ const HostCard = (props) => {
     console.log(id, name, price)
     return (
         <Link
-            to={`/host/vans/${id}`}
+            to={`${id}`}
             key={id}
             className="host-van-link-wrapper"
         >
