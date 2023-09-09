@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
 import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { getHostVans } from "../../api";
 
 const HostVanDetail = () => {
     const params = useParams()
     const [van, setVan] = useState(null); 
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
     const styleNav = {
         fontWeight: "bold",
         textDecoration: "underline",
@@ -11,13 +14,27 @@ const HostVanDetail = () => {
     }
 
     useEffect(() => {
-        fetch(`/api/host/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => setVan(data.vans))
-    }, [])
+        async function loadVans() {
+            setLoading(true)
+            try {
+                const data = await getHostVans(params.id)
+                setVan(data)
+            } catch (err) {
+                setError(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadVans()
+    }, [params.id])
 
     if (!van) {
         return <h1>Loading...</h1>
+    }
+
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
     }
 
     return (

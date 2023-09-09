@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const HostCard = (props) => {
     const {id, name, price, imageUrl} = props
-    console.log(id, name, price)
+
     return (
         <Link
             to={`${id}`}
