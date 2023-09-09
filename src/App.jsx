@@ -13,6 +13,7 @@ import HostVan from './pages/Host/HostVan'
 import HostVanInfo from './pages/Host/HostVanInfo'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanPricing from './pages/Host/HostVanPricing'
+import Error from './pages/Error'
 import './server'
 import HostVanDetail from './pages/Host/HostVanDetail'
 
@@ -36,6 +37,7 @@ function App() {
             </Route>
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<Error />} />
         </Route>
       </Routes>
     </BrowserRouter>
